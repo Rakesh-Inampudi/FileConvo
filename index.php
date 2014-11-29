@@ -6,9 +6,9 @@ require_once 'src/contrib/Google_Oauth2Service.php';
 
 // set variables
 ########## Google Settings.. Client ID, Client Secret from https://cloud.google.com/console #############
-$google_client_id 		= '689191895905-tj7vic83hagtrvp5ss2qh9edos5c3lu5.apps.googleusercontent.com';
-$google_client_secret 	= 'zJQErHyf5fQNu2kkcBopwg72';
-$google_redirect_url 	= 'https://localhost/CloudConvert/index.php'; //path to your script
+$google_client_id 		= '689191895905-fcqe546dgjhc7c85531955na285409k2.apps.googleusercontent.com';
+$google_client_secret 	= 'RGK4iL2lgBhyX2ElzZOUDOa-';
+$google_redirect_url 	= 'https://young-shore-9280.herokuapp.com/'; //path to your script
 $google_developer_key 	= 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
 //start session
