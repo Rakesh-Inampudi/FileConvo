@@ -9,14 +9,14 @@ require_once 'src/contrib/Google_Oauth2Service.php';
 $google_client_id 		= '689191895905-fcqe546dgjhc7c85531955na285409k2.apps.googleusercontent.com';
 $google_client_secret 	= 'RGK4iL2lgBhyX2ElzZOUDOa-';
 $google_redirect_url 	= 'https://young-shore-9280.herokuapp.com/'; //path to your script
-$google_developer_key 	= 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$google_developer_key 	= 'AIzaSyCnGzomO_DjAHBrJgTf_UKqjSJwiev8AT8';
 
 //start session
 session_start();
 
 // create an instance of the google client
 $gClient = new Google_Client();
-$gClient->setApplicationName('Login to Sanwebe.com');
+$gClient->setApplicationName('login');
 $gClient->setClientId($google_client_id);
 $gClient->setClientSecret($google_client_secret);
 $gClient->setRedirectUri($google_redirect_url);
