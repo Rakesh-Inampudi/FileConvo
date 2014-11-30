@@ -1,5 +1,31 @@
 <?php
 
+// set variables
+########## Google Settings.. Client ID, Client Secret from https://cloud.google.com/console #############
+//$google_client_id 		= '689191895905-c3vkvbhl0pha67mevqdb2d1tpf5va4q8.apps.googleusercontent.com';
+//$google_client_secret 	= 'ZvNJv2dndY93GK039wut06Xk';
+//$google_redirect_url 	= 'https://localhost/CloudConvert/index.php'; //path to your script
+//$google_developer_key 	= 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+if ($_SERVER['SERVER_NAME'] == "fileconvo.azurewebsites.net") {
+	$google_client_id 		= '689191895905-ko9ep5g9pue74t6u8a4bolhi85njo438.apps.googleusercontent.com';
+	$google_client_secret 	= 'Aj8-3xhPBsrDbx8lsBMvsG98';
+	$google_redirect_url 	= 'http://fileconvo.azurewebsites.net/'; //path to your script
+	$google_developer_key 	= 'AIzaSyCnGzomO_DjAHBrJgTf_UKqjSJwiev8AT8';
+	$path_to_files = "D:/home/site/wwwroot/";
+} elseif ($_SERVER['SERVER_NAME'] == "young-shore-9280-965.herokuapp.com") {
+	$google_client_id 		= '689191895905-fcqe546dgjhc7c85531955na285409k2.apps.googleusercontent.com';
+	$google_client_secret 	= 'RGK4iL2lgBhyX2ElzZOUDOa-';
+	$google_redirect_url 	= 'https://young-shore-9280.herokuapp.com/'; //path to your script
+	$google_developer_key 	= 'AIzaSyCnGzomO_DjAHBrJgTf_UKqjSJwiev8AT8';
+	$path_to_files = "D:/home/site/wwwroot";
+} else {
+	$google_client_id 		= '689191895905-c3vkvbhl0pha67mevqdb2d1tpf5va4q8.apps.googleusercontent.com';
+	$google_client_secret 	= 'ZvNJv2dndY93GK039wut06Xk';
+	$google_redirect_url 	= 'https://localhost/CloudConvert/index.php'; //path to your script
+	$google_developer_key 	= 'AIzaSyCnGzomO_DjAHBrJgTf_UKqjSJwiev8AT8';
+	$path_to_files = "C:/xampp/htdocs/";
+}
+
 function isUserLoggedIn()
 {
 	return false;
