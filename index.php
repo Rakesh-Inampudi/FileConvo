@@ -19,7 +19,7 @@ if ($_SERVER['SERVER_NAME'] == "fileconvo.azurewebsites.net") {
 	$google_redirect_url 	= 'http://fileconvo.azurewebsites.net/'; //path to your script
 	$google_developer_key 	= 'AIzaSyCnGzomO_DjAHBrJgTf_UKqjSJwiev8AT8';
 	$path_to_files = "D:/home/site/wwwroot/";
-} elseif ($_SERVER['SERVER_NAME'] == "young-shore-9280-965.herokuapp.com") {
+} elseif ($_SERVER['SERVER_NAME'] == "herokuapp.com") {
 	$google_client_id 		= '220072187471-09fugmebgf3d3h82bu40jg4lr4mv861f.apps.googleusercontent.com';
 	$google_client_secret 	= 'JUNH3BvQhvgYImMqBBi4aOMG';
 	$google_redirect_url 	= 'https://young-shore-9280-965.herokuapp.com'; //path to your script
