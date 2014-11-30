@@ -10,10 +10,22 @@ require_once 'CloudConvert.class.php';
 
 // set variables
 ########## Google Settings.. Client ID, Client Secret from https://cloud.google.com/console #############
-$google_client_id 		= '689191895905-tj7vic83hagtrvp5ss2qh9edos5c3lu5.apps.googleusercontent.com';
-$google_client_secret 	= 'zJQErHyf5fQNu2kkcBopwg72';
-$google_redirect_url 	= 'https://localhost/CloudConvert/index.php'; //path to your script
-$google_developer_key 	= 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+if ($_SERVER['SERVER_NAME'] == "fileconvo.azurewebsites.net") {
+	$google_client_id 		= '689191895905-ko9ep5g9pue74t6u8a4bolhi85njo438.apps.googleusercontent.com';
+	$google_client_secret 	= 'Aj8-3xhPBsrDbx8lsBMvsG98';
+	$google_redirect_url 	= 'http://fileconvo.azurewebsites.net/'; //path to your script
+	$google_developer_key 	= 'AIzaSyCnGzomO_DjAHBrJgTf_UKqjSJwiev8AT8';
+} elseif ($_SERVER['SERVER_NAME'] == "young-shore-9280-965.herokuapp.com") {
+	$google_client_id 		= '689191895905-fcqe546dgjhc7c85531955na285409k2.apps.googleusercontent.com';
+	$google_client_secret 	= 'RGK4iL2lgBhyX2ElzZOUDOa-';
+	$google_redirect_url 	= 'https://young-shore-9280.herokuapp.com/'; //path to your script
+	$google_developer_key 	= 'AIzaSyCnGzomO_DjAHBrJgTf_UKqjSJwiev8AT8';
+} else {
+	$google_client_id 		= '689191895905-c3vkvbhl0pha67mevqdb2d1tpf5va4q8.apps.googleusercontent.com';
+	$google_client_secret 	= 'ZvNJv2dndY93GK039wut06Xk';
+	$google_redirect_url 	= 'https://localhost/CloudConvert/index.php'; //path to your script
+	$google_developer_key 	= 'AIzaSyCnGzomO_DjAHBrJgTf_UKqjSJwiev8AT8';
+}
 
 //start session
 session_start();
@@ -69,7 +81,7 @@ if (isset($_POST['submit'])) {
 		
 	// GRAB FILE TMP AND TO UPLOAD
 	$tmpfile = $_FILES['uploaded-file']["tmp_name"];
-	$fileToUpload = "FileConvo/" . $_FILES['uploaded-file']["name"];
+	$fileToUpload = "C:/xampp/htdocs/CloudConvert/" . $_FILES['uploaded-file']["name"];
 	
 	// GET THE FILETYPE FROM THE FILE ($fileToUpload) 'google: find extension from filename'
 	$ext=substr($fileToUpload,strpos($fileToUpload,'.')+1);
@@ -80,11 +92,11 @@ if (isset($_POST['submit'])) {
 	
 		
 	//$formatInput = $_POST['format_input'];
-	//$formatOutput = $_POST['format_output'];
+	$formatOutput = $_POST['format_output'];
 	
 	// IS OUTPUT TYPE SET (not "--SELECT--") <option value="">-- Select</option> if ($formatOutput == "") throw exception
 	
-	$finalLocation = "FileConvo/"; // FORMAT FINAL LOCATIN BASED ON SELECTED TYPE
+	$finalLocation = "C:/xampp/htdocs/CloudConvert/output." . $formatOutput; // FORMAT FINAL LOCATIN BASED ON SELECTED TYPE
 	
 	move_uploaded_file($tmpfile, $fileToUpload);
 	
@@ -92,20 +104,21 @@ if (isset($_POST['submit'])) {
 
 	$process = CloudConvert::createProcess(
 		$ext, // GET THIS FILE UPLOADED
-		"pdf", // SELEC
+		$formatOutput, // SELEC
 		$apikey
 	);
 	
-	$process-> upload($fileToUpload, "pdf" );
+	$process-> upload($fileToUpload, $formatOutput );
 	if ($process-> waitForConversion()) {
-	   $process -> download($finalLocation);
-	   
-	    // DOWLOAD FILE FROM PHP "Header: Application/x-"... readfile();
+		$process -> download($finalLocation);
+
+		// DOWLOAD FILE FROM PHP "Header: Application/x-"... readfile();
 		//http://stackoverflow.com/questions/40943/how-to-automatically-start-a-download-in-php
-			header('Content-type: application/pdf');
-			header('Content-Disposition: attachment; filename="' . basename($process) . '"');
-			header('Content-Transfer-Encoding: binary');
-			readfile($process);//$decrypted_file_path
+		header('Content-type: application/pdf');
+		header('Content-Disposition: attachment; filename="' . basename($finalLocation) . '"');
+		header('Content-Transfer-Encoding: binary');
+		readfile($finalLocation);//$decrypted_file_path
+
 		echo "Conversion done :-)";
 		die();
 	} else {
@@ -172,9 +185,8 @@ if (isset($_POST['submit'])) {
 	<label for="sel1">Select output format</label>
 	<select name="format_output" class="form-control" id="<?php echo $_POST["$outputfile"];?>">
     <option>--Select--</option>
-	<option>docx</option>
     <option>pdf</option>
-    <option>jpeg</option>
+    <option>jpg</option>
     <option>png</option>
 	</select>
 	</div><br>
