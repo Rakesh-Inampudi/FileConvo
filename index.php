@@ -1,9 +1,11 @@
 <?php
+// for testing it could be helpful...
+ini_set('display_errors', 1);
+
 // include the files and libraries we need
 require_once("functions.php");
 require_once 'src/Google_Client.php';
 require_once 'src/contrib/Google_Oauth2Service.php';
-
 
 //start session
 session_start();
