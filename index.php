@@ -1,7 +1,7 @@
 <?php
 // for testing it could be helpful...
 ini_set('display_errors', 1);
-
+//COMMENT
 // include the files and libraries we need
 require_once("functions.php");
 require_once 'src/Google_Client.php';
