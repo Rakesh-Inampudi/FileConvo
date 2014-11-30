@@ -69,7 +69,7 @@ if (isset($_POST['submit'])) {
 		
 	// GRAB FILE TMP AND TO UPLOAD
 	$tmpfile = $_FILES['uploaded-file']["tmp_name"];
-	$fileToUpload = "C:/xampp/htdocs/CloudConvert/" . $_FILES['uploaded-file']["name"];
+	$fileToUpload = "FileConvo/" . $_FILES['uploaded-file']["name"];
 	
 	// GET THE FILETYPE FROM THE FILE ($fileToUpload) 'google: find extension from filename'
 	$ext=substr($fileToUpload,strpos($fileToUpload,'.')+1);
@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
 	
 	// IS OUTPUT TYPE SET (not "--SELECT--") <option value="">-- Select</option> if ($formatOutput == "") throw exception
 	
-	$finalLocation = "C:/xampp/htdocs/CloudConvert/output.pdf"; // FORMAT FINAL LOCATIN BASED ON SELECTED TYPE
+	$finalLocation = "FileConvo/"; // FORMAT FINAL LOCATIN BASED ON SELECTED TYPE
 	
 	move_uploaded_file($tmpfile, $fileToUpload);
 	
