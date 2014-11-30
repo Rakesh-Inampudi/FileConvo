@@ -21,10 +21,10 @@ if ($_SERVER['SERVER_NAME'] == "fileconvo.azurewebsites.net") {
 	$google_developer_key 	= 'AIzaSyCnGzomO_DjAHBrJgTf_UKqjSJwiev8AT8';
 	$path_to_files = "D:/home/site/wwwroot/";
 } elseif ($_SERVER['SERVER_NAME'] == "young-shore-9280-965.herokuapp.com") {
-	$google_client_id 		= '689191895905-fcqe546dgjhc7c85531955na285409k2.apps.googleusercontent.com';
-	$google_client_secret 	= 'RGK4iL2lgBhyX2ElzZOUDOa-';
+	$google_client_id 		= '220072187471-09fugmebgf3d3h82bu40jg4lr4mv861f.apps.googleusercontent.com';
+	$google_client_secret 	= 'JUNH3BvQhvgYImMqBBi4aOMG';
 	$google_redirect_url 	= 'https://young-shore-9280.herokuapp.com/'; //path to your script
-	$google_developer_key 	= 'AIzaSyCnGzomO_DjAHBrJgTf_UKqjSJwiev8AT8';
+	$google_developer_key 	= 'AIzaSyCj0odv7UqxfBcSedHuT_n78Mc6sA5T13M';
 	$path_to_files = "D:/home/site/wwwroot";
 } else {
 	$google_client_id 		= '689191895905-c3vkvbhl0pha67mevqdb2d1tpf5va4q8.apps.googleusercontent.com';
